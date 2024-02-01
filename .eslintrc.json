@@ -36,6 +36,14 @@
     "@typescript-eslint/no-unsafe-member-access": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/non-nullable-type-assertion-style": "off",
+    "@typescript-eslint/quotes": [
+  "error",
+  "double",
+  {
+    "avoidEscape": true,
+    "allowTemplateLiterals": true
+  }
+],
     "arrow-body-style": "error",
     "import/no-amd": "error",
     "import/no-commonjs": "error",

@@ -23,6 +23,16 @@
 		"typescript.format.semicolons": "insert",
 		"js/ts.implicitProjectConfig.target": "ESNext",
 		"javascript.format.semicolons": "insert",
-		"javascript.preferences.quoteStyle": "double"
+		"javascript.preferences.quoteStyle": "double",
+		"tsimporter.emitSemicolon": true,
+		"javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+		"javascript.format.insertSpaceAfterConstructor": true,
+		"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+		"editor.tabSize": 2,
+		"editor.autoClosingBrackets": "always",
+		"editor.autoClosingComments": "always",
+		"editor.autoClosingDelete": "always",
+		"editor.autoClosingQuotes": "always",
+		"editor.autoClosingOvertype": "always"
 	}
 }

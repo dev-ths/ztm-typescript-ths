@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 // A variable is a named memory location that can hold a value. Variables can
 // be used to store a wide range of data types, such as numbers, strings, and
 // arrays. A variable is declared by specifying its name, data type, and
@@ -8,3 +7,7 @@
 //
 // Useful links:
 // https://www.typescriptlang.org/docs/handbook/variable-declarations.html#let-declarations
+
+const courseName = "typescript";
+
+const stuff = ''
