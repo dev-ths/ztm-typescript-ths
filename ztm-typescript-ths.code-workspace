@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+		"eslint.format.enable": true,
+		"editor.formatOnPaste": true,
+		"editor.formatOnSave": true,
+		"cSpell.words": [
+			"autobuild",
+			"daisyui"
+		],
+		"tsimporter.doubleQuotes": true,
+		"typescript.format.insertSpaceAfterTypeAssertion": true,
+		"typescript.inlayHints.enumMemberValues.enabled": true,
+		"typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+		"typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+		"typescript.inlayHints.parameterTypes.enabled": true,
+		"typescript.inlayHints.variableTypes.enabled": true,
+		"typescript.format.semicolons": "insert",
+		"js/ts.implicitProjectConfig.target": "ESNext",
+		"javascript.format.semicolons": "insert",
+		"javascript.preferences.quoteStyle": "double"
+	}
+}
