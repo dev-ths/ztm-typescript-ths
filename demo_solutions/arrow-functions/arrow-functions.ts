@@ -1,5 +1,7 @@
 /* eslint-disable */
 
+import { log } from "console";
+
 // Arrow functions provide a concise syntax for defining functions. They are
 // defined using a fat arrow (=>) and can be used in place of traditional
 // function expressions. Arrow functions automatically bind the 'this' keyword
@@ -46,18 +48,41 @@ function calculate(fn: calculationFn, lhs: number, rhs: number): number {
   return fn(lhs, rhs);
 }
 
-// We use the `arrowSum` function expression that we created earlier:
-const ten = calculate(arrowSum, 5, 5);
+/* const calculateMore = (fn1:(calculationFn)=>number,fn2:(calculationFn)=>number)
+ */
 
-// We can also use a regular function. Just like a function expression,
-// the function signature must match in order to use it.
-const twenty = calculate(sum, ten, ten);
+type singleCurryVariable = (a:number) => (b:number)=>number
 
-// Add more functionality with a function expression to calculate
-// the remainder of dividing two numbers:
-const remainder = (lhs: number, rhs: number): number => {
-  return lhs % rhs;
-};
+const topLevelCurryingOperation = (fn:singleCurryVariable) => {
+  return fn
+}
 
-// Use `remainder` as we did `sum`:
-const one = calculate(remainder, 4, 3);
+const deletionOperation = (a:number)=> (b:number) => { return b - a}
+
+//console.log(topLevelCurryingOperation(deletionOperation))
+
+const curryDelete = topLevelCurryingOperation(deletionOperation)
+
+console.log(curryDelete)
+const deleteBy5 = curryDelete(5)
+
+console.log(deleteBy5(17))
+console.log(deleteBy5(100))
+
+const differentCalculation  = (fn: calculationFn,x:number, y:number) => {
+  return fn(x,y)
+}
+
+const additionFunction = (a:number,b:number) => a + b
+const subtractionFunction = (a:number,b:number) => a - b
+
+const param1 = parseInt('15')
+const param2 = parseInt('27')
+
+console.log(differentCalculation(additionFunction,param1,param2))
+console.log(differentCalculation(subtractionFunction,param1,param2))
+
+const nonTypeFunction = (fn:(a:number,b:number)=>number,a:number,b:number) => fn(a,b)
+
+console.log('nonadd',nonTypeFunction(additionFunction,param1,param2))
+console.log('nonsub',nonTypeFunction(subtractionFunction,param1,param2))

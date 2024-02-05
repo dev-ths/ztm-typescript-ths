@@ -1,4 +1,4 @@
-/* eslint-disable */
+  /* eslint-disable */
 import { strict as assert } from "assert";
 
 // Type aliases provide a way to give a name to a specific type or to create a
@@ -25,3 +25,13 @@ function print(thing: string) {
 function displayGreeting(name: PersonName) {
   console.log(`Name is ${name}`);
 }
+
+type chickenName = string
+const rooster: chickenName = 'rodney'
+const hen: string = 'bucker'
+console.log(rooster,hen);
+
+function betterPrint(name:PersonName){
+  console.log(name)
+}
+betterPrint('david')

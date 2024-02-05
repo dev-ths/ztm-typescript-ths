@@ -1,3 +1,5 @@
+import { assert } from "console";
+
 // == Part 1 ==
 //
 // Write some code to allow or deny purchasing an item based on a given age. If
@@ -7,7 +9,7 @@
 //
 // To acknowledge if the person is allowed to make the purchase, print out "OK
 // to purchase". To acknowledge if the person is now allowed to make the
-// puchase, print out "cannot purchase".
+// purchase, print out "cannot purchase".
 //
 // == Part 2 ==
 //
@@ -26,5 +28,18 @@
 // Check your code by changing the age to different values and confirm that the
 // correct messages are displayed.
 
-const age = 25;
+const age = 7; 
+let ageBracket:string | undefined
 
+if (age >= 65) {
+  ageBracket = "senior"
+} else if (age >= 18) {
+  ageBracket = "adult"
+} else if (age > 0 && age < 18 ) {
+  ageBracket = "child"
+} else {
+  ageBracket = undefined
+}
+
+assert(ageBracket==="adult","uh oh")
+console.log(age,ageBracket);

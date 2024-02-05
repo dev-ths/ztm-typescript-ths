@@ -11,6 +11,7 @@ type Coordinate = {
   y: number; // field named `y` containing the type `number`
 };
 
+
 // To create a `Coordinate`:
 const origin: Coordinate = {
   x: 0,
@@ -80,6 +81,29 @@ let home = {
   name: "home",
 };
 
+let yellowHouse:Location = {
+  coord: {
+    x: 15,
+    y: 22,
+  },
+  name:'home'
+}
+
+let megaHouse = {
+  x: 18,
+  y: 32,
+  name: 'megahooome'
+}
+
+printCoord(megaHouse)
+
 // Using dot notation, we can access fields from nested objects:
 home.coord.x = 1; // change the x coordinate to 1
 assert.deepEqual(home.coord, { x: 1, y: 0 });
+
+const something:Coordinate= {
+  x: 15,
+  y: 25
+}
+
+something

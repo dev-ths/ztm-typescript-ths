@@ -10,3 +10,13 @@
 
 import { strict as assert } from "assert";
 
+const celsiusToFahrenheit = (temperature:number):number => (temperature * 1.8) + 32
+const fahrenheitToCelsius = (temperature:number):number => (temperature - 32) / 1.8
+const isCelsius = true
+const isFahrenheit = !isCelsius
+
+const newFahrenheit = isCelsius ? celsiusToFahrenheit(25) : null
+const newCelsius = !isFahrenheit ? fahrenheitToCelsius(68) : null
+
+console.log("fah", newFahrenheit);
+console.log("cel", newCelsius); 

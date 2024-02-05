@@ -11,7 +11,8 @@
 		"editor.formatOnSave": true,
 		"cSpell.words": [
 			"autobuild",
-			"daisyui"
+			"daisyui",
+			"todos"
 		],
 		"tsimporter.doubleQuotes": true,
 		"typescript.format.insertSpaceAfterTypeAssertion": true,

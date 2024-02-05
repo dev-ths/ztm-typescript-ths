@@ -11,7 +11,7 @@ import { strict as assert } from "assert";
 class Empty { }
 
 // Classes can have 'properties' and they must have default values set.
-// These defaults will be used when the objet is created.
+// These defaults will be used when the object is created.
 class Color {
   // Always include the type annotation. It's optional, but
   // readability will be enhanced with the type specified.

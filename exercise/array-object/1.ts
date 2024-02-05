@@ -27,13 +27,28 @@
 
 import { strict as assert } from "assert";
 
-const alice = {
+const alice:{name:string, enrollments:string[], addSection:any,removeSection:any,totalEnrollments:any} = { 
   name: "Alice",
   enrollments: [],
+  addSection(courseName:string) {
+    this.enrollments.push(courseName)
+    return this.enrollments
+  },
+  removeSection(courseName:string) {
+    const newSections = this.enrollments.filter((item=>item !==courseName))
+    this.enrollments = newSections
+    return this.enrollments
+  },
+  totalEnrollments() {
+    const enrollmentNumber = this.enrollments.length
+    return enrollmentNumber
+  }
 };
 
-const bob = {
-  name: "Bob",
-  enrollments: ["Algorithms"],
-}
-
+alice.addSection("CompSci")
+alice.addSection("Networking")
+alice.addSection("Algorithms")
+console.log(alice)
+alice.removeSection("Networking")
+console.log(alice)
+console.log(alice.totalEnrollments())

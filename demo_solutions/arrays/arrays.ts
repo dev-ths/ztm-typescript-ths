@@ -4,12 +4,17 @@ import { strict as assert } from "assert";
 // Arrays offer a way to store and manipulate collections of values of the same
 // type. They are defined using square brackets and can be populated with
 // values at initialization, or later using various methods such as push(),
-// splice(), and concat(). Arrays can be of a fixed length or dynamically
+// splice(), and concat().  Arrays can be of a fixed length or dynamically
 // resized as needed, and they can be used with various array methods to
 // perform common operations like sorting, filtering, and mapping.
 
 const numbers: number[] = [1, 2, 3];
 let letters: string[] = ["a", "b", "c"];
+
+const func1 = ()=>{}
+const func2 = ()=>{}
+
+const num = [func1,func2]
 
 // Each piece of data within an array is called an 'element' or 'item'.
 // Elements are stored in the array starting from zero (0). These

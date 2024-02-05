@@ -17,6 +17,6 @@ const typescript = {
   url: "typecriptlang.org",
 };
 
-const sites = [microsoft, typescript];
+const sites:Link[] = [microsoft, typescript];
 const tsUrl = sites[1].url;
 sites[0].title = "Microsoft";

@@ -53,3 +53,20 @@ import { strict as assert } from "assert";
 const ranking = [3, 4, 1, 2];
 const teams = ["red", "blue", "green", "yellow"];
 
+const teamSorter = (rankingArray:number[],teamsArray:string[]):any => {
+  const rank = rankingArray.concat([])
+  const team = teamsArray.concat([])
+  const organizerArray:any = []
+
+  for (let i = 0; i<rank.length;i++) {
+    const combined = [rank[i],team[i]]
+    organizerArray.push(combined)
+  }
+
+  const ascendedSort = organizerArray.toSorted((a,b)=>a[0]-b[0])
+  const descendedSort = organizerArray.toSorted((a,b)=>b[0]-a[0])
+
+  return descendedSort
+}
+
+console.log(teamSorter(ranking,teams))

@@ -15,5 +15,28 @@
 
 import { strict as assert } from "assert";
 
-const weightClass = parseInt("3");
+const weightClass = parseInt("8");
+let weightClassName = "word"
 
+switch (weightClass){
+  case 1:
+  case 2:
+  case 3:
+    weightClassName = "light weight class"
+    break
+  case 4:
+  case 5:
+  case 6:
+    weightClassName = "medium weight class"
+    break
+  case 7:
+  case 8:
+  case 9:
+  case 10:
+    weightClassName = "heavy weight class"
+    break
+  default:
+    weightClassName = "unknown"
+}
+
+console.log(weightClassName)

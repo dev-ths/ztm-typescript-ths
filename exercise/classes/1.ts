@@ -1,4 +1,4 @@
-// You are tasked with creating some components for a video game. The first is
+/* // You are tasked with creating some components for a video game. The first is
 // for managing the health of various game objects, and the second is for
 // managing a treasure chest.
 //
@@ -49,3 +49,85 @@
 // - Assert that you _do not_ get "gold" and 900 again
 
 import { strict as assert } from "assert";
+
+class Health {
+  healthInitial: number
+  healthCurrent: number
+  healthMax: number
+  constructor(healthInitial=100, healthMax=200) {
+    this.healthInitial = healthInitial
+    this.healthMax = healthMax
+    this.healthCurrent = healthInitial
+  }
+  addHealth(healthPoints:number=0):number {
+    if (isNaN(healthPoints)) {
+      return this.healthCurrent
+    }
+    if (healthPoints < 0) {
+      return this.healthCurrent
+    }
+    if (this.healthCurrent + healthPoints >= this.healthMax) {
+      this.healthCurrent = this.healthMax
+      return this.healthCurrent
+    }
+
+    const updatedHealthCurrent = this.healthCurrent + healthPoints
+    this.healthCurrent = updatedHealthCurrent
+    return this.healthCurrent
+  }
+  removeHealth(healthPoints:number=0):number {
+    if (isNaN(healthPoints)) {
+      return this.healthCurrent
+    }
+    if (healthPoints < 0) {
+      return this.healthCurrent
+    }
+    if (this.healthCurrent - healthPoints <= 0) {
+      this.healthCurrent = 0
+      return this.healthCurrent
+    }
+
+    const updatedHealthCurrent = this.healthCurrent - healthPoints
+    this.healthCurrent = updatedHealthCurrent
+    return this.healthCurrent
+  }
+
+}
+
+const babyHealth1 = new Health(100)
+console.log(babyHealth1.addHealth(30));
+console.log(babyHealth1);
+console.log(babyHealth1.addHealth(200));
+console.log(babyHealth1);
+console.log(babyHealth1.removeHealth(200));
+console.log(babyHealth1);
+
+ */
+
+class TreasureChest {
+  item: string
+  quantity: number
+  removed: boolean
+  constructor(item="",quantity=0) {
+    this.item = item
+    this.quantity = quantity
+    this.removed = false
+  }
+  takeItem() {
+    if (this.removed) {
+      return {}
+    }
+    const takenItem = {
+      item: this.item,
+      quantity: this.quantity
+    }
+    this.removed = true
+    return takenItem
+  }
+}
+
+const potionChest = new TreasureChest("Potion",3)
+console.log(potionChest)
+console.log(potionChest.takeItem())
+console.log(potionChest.takeItem())
+console.log(potionChest)

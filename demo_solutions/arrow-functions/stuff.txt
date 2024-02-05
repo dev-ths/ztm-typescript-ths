@@ -1,0 +1,16 @@
+// We use the `arrowSum` function expression that we created earlier:
+const ten = calculate(arrowSum, 5, 5);
+
+// We can also use a regular function. Just like a function expression,
+// the function signature must match in order to use it.
+const twenty = calculate(sum, ten, ten);
+
+// Add more functionality with a function expression to calculate
+// the remainder of dividing two numbers:
+const remainder = (lhs: number, rhs: number): number => {
+  return lhs % rhs;
+};
+
+// Use `remainder` as we did `sum`:
+const one = calculate(remainder, 4, 3);
+

@@ -32,3 +32,21 @@ const [x, y] = coord();
 assert.equal(x, 3);
 assert.equal(y, 5);
 
+const arrTuple:[number, number][] = [
+  [55,27],
+  [14,6],
+]
+
+type dogBreed = string
+type age = number
+
+type petDog =[dogBreed,age]
+
+const pet:petDog = ['Bloodhound',7]
+
+const pets:petDog[] = [
+  ['golden',9],
+  ['greyhound',2]
+]
+
+console.log(pet)
