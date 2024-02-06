@@ -1,3 +1,7 @@
+import axios  from "axios";
+import { fetchLocationData } from "./location";
+import MockAdapter from "axios-mock-adapter";
+
 const SAMPLE_API_RESPONSE = [
   {
     place_id: 287781008,
@@ -28,3 +32,33 @@ const SAMPLE_API_RESPONSE = [
     importance: 0.8181396344174214
   },
 ];
+
+it("should convert API response",async()=>{
+  const httpClient = new MockAdapter(axios)
+  const GEOCODE_API_URL = "https://geocode.maps.co/search"
+  httpClient.onGet(GEOCODE_API_URL,{ params: {q: "test"}}).reply(200,SAMPLE_API_RESPONSE)
+
+  await fetchLocationData(axios,GEOCODE_API_URL,"test")
+  // no need to expect anything, because the function throws an error if data parsing fails
+  // thrown errors aka exceptions automatically cause the test to fail
+})
+
+it("throws error when response is not 200",async()=>{
+  const httpClient = new MockAdapter(axios)
+  const GEOCODE_API_URL = "https://geocode.maps.co/search"
+  httpClient.onGet(GEOCODE_API_URL,{ params: {q: "test"}}).reply(400,SAMPLE_API_RESPONSE)
+
+  await expect(fetchLocationData(axios,GEOCODE_API_URL,"test")).rejects.toThrow()
+  // no need to expect anything, because the function throws an error if data parsing fails
+  // thrown errors aka exceptions automatically cause the test to fail
+})
+
+it("throws error when api response changes",async()=>{
+  const httpClient = new MockAdapter(axios)
+  const GEOCODE_API_URL = "https://geocode.maps.co/search"
+  httpClient.onGet(GEOCODE_API_URL,{ params: {q: "test"}}).reply(400,{})
+
+  await expect(fetchLocationData(axios,GEOCODE_API_URL,"test")).rejects.toThrow()
+  // no need to expect anything, because the function throws an error if data parsing fails
+  // thrown errors aka exceptions automatically cause the test to fail
+})
