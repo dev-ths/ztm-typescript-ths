@@ -6,8 +6,8 @@
 import { strict as assert } from "assert";
 
 interface User {
-  id: number;
-  name: string;
+  id: number
+  name: string
 }
 
 async function getUser(): Promise<User> {
@@ -26,7 +26,7 @@ async function getUser(): Promise<User> {
 async function fetchUserData(): Promise<User | undefined> {
   try {
     const user = await getUser();
-    console.log(`user name: ${user.name}`);
+    console.log(`${user.name}`)
     return user;
   } catch (error) {
     console.log("Error fetching user data:", error);
@@ -34,5 +34,21 @@ async function fetchUserData(): Promise<User | undefined> {
   }
 }
 
-fetchUserData();
+// fetchUserData();
 
+const data = new Promise((resolve,reject)=>{
+  resolve("yes")
+})
+
+async function top():Promise<void>{
+const data = new Promise((resolve,reject)=>{
+  resolve("yes")
+})
+const holder = await getData(data)
+console.log(holder)
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/return-await
+const getData = async(promiseItem):Promise<string> => await promiseItem
+
+top()

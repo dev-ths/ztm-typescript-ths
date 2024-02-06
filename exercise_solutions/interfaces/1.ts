@@ -39,6 +39,27 @@ interface PriorityAccess {
   hasPriorityAccess(day: string): boolean;
 }
 
+interface PriorityShipping {
+  hasPriorityShipping(membership:string):boolean
+}
+
+class StandardShipping implements PriorityShipping {
+  hasPriorityShipping(membership:string):boolean{
+    return false
+  }
+}
+
+class VIPShipping implements PriorityShipping {
+  hasPriorityShipping(membership:string):boolean{
+    switch(membership){
+      case "VIP":
+        return true
+      default:
+        return false
+    }
+  }
+}
+
 class StandardTicket implements PriorityAccess {
   hasPriorityAccess(day: string): boolean {
     return false;

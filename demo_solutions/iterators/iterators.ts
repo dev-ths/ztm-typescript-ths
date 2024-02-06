@@ -38,3 +38,28 @@ for (k in nums) {
   // Print the property name and associated value:
   console.log(`[${k}]: ${nums[k]}`);
 }
+
+
+let ranObject = {
+  one: 1,
+  two: 2,
+  three: 3,
+  five: 5,
+}
+
+for (let i in ranObject) {
+  console.log(i);
+}
+
+let iProperties: keyof typeof ranObject
+
+for (iProperties in ranObject) {
+  console.log(`${iProperties}, ${ranObject[iProperties]}`)
+}
+
+ranObject['food'] = 'chicken'
+
+
+for (iProperties in ranObject) {
+  console.log(`loop2: ${iProperties}, ${ranObject[iProperties]}`)
+}

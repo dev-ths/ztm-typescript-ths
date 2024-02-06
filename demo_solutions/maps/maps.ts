@@ -55,3 +55,13 @@ for (const score of testScores.values()) {
 // If you want to delete all the keys from a map:
 testScores.clear();
 assert.equal(testScores.size, 0);
+
+const arrGeneral: Array<number> = [1]
+
+function anyStuff<T>(arr: T[]) {
+  arr.forEach((item)=>{
+    console.log(item)
+  })
+}
+
+console.log(testScores.has('what'));

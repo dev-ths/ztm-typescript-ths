@@ -38,3 +38,16 @@ export function failedString() {
     }, 1);
   });
 }
+
+
+// An asynchronus function that fails.
+export function failedPromise() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject(()=>{
+        throw new Error('failed inside reject')
+      });
+    }, 1);
+  });
+}
+

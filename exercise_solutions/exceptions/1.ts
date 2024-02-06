@@ -11,7 +11,61 @@
 //   the maximum length
 
 import { strict as assert } from "assert";
+import { max } from "../../demo_solutions/dts/mylib";
 
+type ErrorMessage = string
+type MaximumMessageLength = number
+
+interface ErrorLengthRetriction {
+  message: ErrorMessage
+  maxLength: MaximumMessageLength
+}
+
+class RestrictedError implements ErrorLengthRetriction {
+  message: string;
+  maxLength: number;
+  constructor(message="",maxLength=10){
+    this.message = message
+    this.maxLength = maxLength
+    // eslint-disable-next-line no-useless-catch
+    try {
+      this.#isValidMessage()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  #isValidMessage():void {
+    if (this.message.length > this.maxLength) {
+      throw new Error("Message too long")
+    }
+  }
+
+  setMessage(ErrorMessage=""):string {
+    // eslint-disable-next-line no-useless-catch
+    try{
+      this.message = ErrorMessage
+      this.#isValidMessage()
+    } catch (error) {
+      console.log(error)
+    }
+
+    return this.message
+  }
+}
+
+const error1 = new RestrictedError("hello",15)
+console.log(error1.message)
+error1.setMessage("what")
+console.log(error1.message)
+error1.setMessage("aierosntaeosirntoiaersnteioarsntoiaernstioeasrntieonarot")
+
+
+
+
+
+
+/* 
 class LengthRestricted {
   value: string;
   constructor(input: string, maxLength: number) {
@@ -29,3 +83,4 @@ assert.throws(() => {
   const crash = new LengthRestricted("crash", 2);
 });
 
+ */

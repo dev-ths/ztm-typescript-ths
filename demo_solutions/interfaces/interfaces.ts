@@ -19,15 +19,47 @@ interface Area {
   area(): number;
 }
 
+interface Volume {
+  length: number
+  width: number
+  height: number
+  area():number
+  volume():number
+}
+
+class Box implements Volume {
+  length: number;
+  width: number;
+  height: number;
+  constructor(length,width,height) {
+    this.length = length
+    this.width = width
+    this.height = height
+
+  }
+  area(){
+    return 1
+  }
+  volume(){
+    return 1
+  }
+}
+
+const amazon = new Box(1,2,3)
+
 interface Perimeter {
   // Implementers of the interface are required to provide
   // a `perimeter` function with this signature:
-  perimeter(): number;
+  perimeter(): string;
+}
+
+interface Chicken{
+  rooster():void
 }
 
 // We use the `implements` keyword when we want a class to implement
 // an interface. Classes can implement more than one interface.
-class Rectangle implements Area, Perimeter {
+class Rectangle implements Area, Perimeter, Chicken {
   // Since this is a class, we can have any fields we want.
   length: number = 1;
   width: number = 1;
@@ -37,10 +69,18 @@ class Rectangle implements Area, Perimeter {
     return this.length * this.width;
   }
 
+  rooster() {return 1}
   // We must provide a `perimeter` function:
   perimeter(): number {
     return 2 * (this.length + this.width);
   }
+}
+
+type AreaAndChicken = Area & Chicken
+
+class What implements AreaAndChicken {
+  rooster(){}
+  area() {return 1}
 }
 
 // We can combine multiple interfaces into one for better ergonomics.

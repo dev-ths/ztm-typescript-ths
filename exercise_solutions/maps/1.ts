@@ -21,7 +21,73 @@
 // 3. Assert that an employee with ID 99 does not exist
 
 import { strict as assert } from "assert";
+const employees = [
+  { id: 1, name: "Alexander" },
+  { id: 2, name: "Amelia" },
+  { id: 3, name: "Ava" },
+  { id: 4, name: "Benjamin" },
+  { id: 5, name: "Charlotte" },
+  { id: 6, name: "Daniel" },
+  { id: 7, name: "Emily" },
+  { id: 8, name: "Emma" },
+  { id: 9, name: "Ethan" },
+  { id: 10, name: "Harper" },
+  { id: 11, name: "Isabella" },
+  { id: 12, name: "James" },
+  { id: 13, name: "Liam" },
+  { id: 14, name: "Matthew" },
+  { id: 15, name: "Mia" },
+  { id: 16, name: "Noah" },
+  { id: 17, name: "Olivia" },
+  { id: 18, name: "Samuel" },
+  { id: 19, name: "Sophia" },
+  { id: 20, name: "William" },
+];
 
+type EmployeeId = number
+type EmployeeName = string
+
+interface Employee {
+  id: EmployeeId
+  name: EmployeeName
+}
+
+const employeeReference = new Map<EmployeeId,EmployeeName>()
+
+employees.forEach((item)=>{
+  const {id, name} = item
+  employeeReference.set(id,name)
+})
+
+class TimeClock implements Employee {
+  currentEmployees:Map<EmployeeId,EmployeeName>
+  dateTime:string
+  id:number
+  name:string
+  constructor(id,name){
+    this.currentEmployees = employeeReference
+    this.dateTime = String(new Date())
+    this.id = id
+    this.name = name
+  }
+
+    isValidEmployeeId():boolean {
+      if (this.currentEmployees.get(this.id) === this.name) {
+        return true
+      } else {
+        return false
+    }
+  }
+}
+
+const emp1 = new TimeClock(0,"Tim")
+const emp2 = new TimeClock(20,"William")
+
+console.log(emp1)
+console.log(emp1.isValidEmployeeId())
+console.log(emp2)
+console.log(emp2.isValidEmployeeId())
+/* 
 type EmployeeId = number;
 type EmployeeName = string;
 
@@ -53,6 +119,12 @@ const employees = [
   { id: 20, name: "William" },
 ];
 
+const employeeTimeClock
+
+
+
+
+
 
 class TimeClock {
   employees: Map<EmployeeId, Employee>;
@@ -75,3 +147,4 @@ const timeClock = new TimeClock(employees);
 
 assert.deepEqual(timeClock.checkId(17), true);
 assert.deepEqual(timeClock.checkId(99), false);
+ */

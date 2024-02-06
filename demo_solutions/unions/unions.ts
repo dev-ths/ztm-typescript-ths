@@ -2,7 +2,7 @@
 
 // Union types allows you to declare a variable or parameter that can hold
 // multiple types of value and are declared using the pipe symbol (|) between
-// the types. Untion types can be useful when you want a something to accept
+// the types. Union types can be useful when you want a something to accept
 // multiple types of input.
 
 // We can use a bar to create a 'union type'. Union types
@@ -73,3 +73,24 @@ sample(12);
 function maybeSayHi(): string | undefined {
   return undefined;
 }
+
+type StringOrBoolean = string | boolean
+
+let data1:StringOrBoolean = 'cat'
+let data2:StringOrBoolean = false
+let data3 = parseInt('15')
+
+function stuff(value) {
+  if (typeof value === "string") {
+    console.log(value + "hello there")
+  } else if (typeof value === 'boolean') {
+    console.log(!value)
+  } else {
+    console.log(undefined)
+  }
+}
+console.log('starting');
+stuff(data1)
+stuff(data2)
+stuff(data3)
+

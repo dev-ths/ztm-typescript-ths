@@ -58,3 +58,65 @@ const circle: Shape = { kind: "circle", radius: 2 };
 
 assert.equal(calculateArea(square), 25);
 assert.equal(calculateArea(circle), Math.PI * 2 ** 2);
+
+interface Dog {
+  animal: string
+  age: number
+  bark():string
+}
+
+interface Cat {
+  animal: string
+  age: number
+  meow():void
+}
+
+type Pet = Dog | Cat
+
+function isDog(param1:Pet): param1 is Dog {
+  return param1.animal === "dog"
+}
+
+function isCat(param2:Pet): param2 is Cat {
+  return "cat" === param2.animal
+}
+
+function animalDetector(animal:Pet) {
+  if(isDog(animal)) {
+    console.log('dog detector',animal.bark())
+    return animal.age
+  }
+  if(isCat(animal)) {
+    animal.meow()
+    return animal.animal
+  }
+  return undefined
+}
+
+class kitty implements Cat {
+  animal ='cat'
+  age = 15
+  meow(){
+    console.log('I am a cat')
+  }
+
+}
+
+class doggo implements Dog {
+  animal= 'dog'
+  age = 4
+  bark(){
+    return "I am a dog"
+  }
+
+}
+
+const petCat = new kitty()
+const petDog = new doggo()
+
+
+console.log(animalDetector(petCat))
+console.log(animalDetector(petDog))
+
+
+console.log(petDog.bark())

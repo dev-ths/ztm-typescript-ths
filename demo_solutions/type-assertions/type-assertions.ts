@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { strict as assert } from "assert";
+import { log } from "console";
 
 // Type assertions allow you to tell the compiler that a value should be
 // considered a certain type, even if TypeScript cannot infer the type
@@ -72,3 +73,34 @@ const unknownPayload: unknown = {
 
 // ERROR: cannot assign to string
 // const msg: string = unknownPayload;
+
+const startingNumber:unknown = 10
+
+const updatedNumber = startingNumber as string
+
+interface chicken {
+  buck():void
+}
+
+interface fish {
+  bubble():void
+}
+
+interface bear {
+  hibernate():void
+}
+
+class Animal implements chicken,fish,bear {
+  buck(){}
+  bubble(){}
+  hibernate(){}
+}
+
+const an1 = new Animal()
+const an2:bear = new Animal()
+
+console.log(an1,an2);
+
+let an3: fish
+an3 = new Animal()
+//an3.hibernate()

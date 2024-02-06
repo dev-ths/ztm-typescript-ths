@@ -12,7 +12,7 @@ import { strict as assert } from "assert";
 
 // We mark the function with the `async` keyword which means this function
 // can now operate asynchronously.
-async function fetchUserDataAsync(userId: number): Promise<{ name: string }> {
+async function fetchUserDataAsync(userId: number): Promise<any> {
   // We call the `fetch` function as before, but prefix it using the `await`
   // keyword. `await` marks an asynchronous point in the function which allows
   // other parts of the program to run while waiting for the `fetch` call to
@@ -53,3 +53,25 @@ fetchUserDataAsync(1)
   .then((userData) => console.log(userData.name))
   // When a `Promise` fails, we use `catch` to handle the error:
   .catch((error) => console.error(error));
+
+interface data {
+  name?: string
+}
+
+async function topLevelFunc() {
+  try {
+    const data = await getData()
+      console.log(data)
+
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+const getData = async():Promise<data> => {
+  const request = await fetch('https://jsonplaceholder.typicode.com/users')
+  const response = await request.json()
+  return response
+}
+
+topLevelFunc()

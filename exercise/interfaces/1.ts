@@ -34,3 +34,35 @@
 //    line
 
 import { strict as assert } from "assert";
+
+class Ticket {
+  priorityAccessDays: string[]
+  priorityAccess:boolean
+  constructor(priorityAccessDays:string[]=[]){
+    this.priorityAccessDays = priorityAccessDays
+    if (priorityAccessDays.includes("weekday") || priorityAccessDays.includes("weekends") || priorityAccessDays.includes("holidays")) {
+      this.priorityAccess = true
+    } else {
+      this.priorityAccess = false
+    }
+  }
+}
+
+class Standard extends Ticket {
+  constructor(){
+    super()
+  }
+}
+
+class Premium extends Ticket {
+  constructor(){
+    super(["weekday"])
+  }
+}
+
+const standardTicket = new Standard()
+const premiumTicket = new Premium()
+
+console.log(standardTicket);
+console.log(premiumTicket);
+
