@@ -15,3 +15,46 @@
 
 import { strict as assert } from "assert";
 
+type Shape = 
+| {kind: "square"; side: number}
+| {kind: "rectangle"; height: number; width: number;}
+| {kind: "circle"; radius: number}
+
+const square:Shape = {
+  kind: "square",
+  side: 17
+}
+
+const rectangle:Shape = {
+  kind: "rectangle",
+  height: 9,
+  width: 4
+}
+
+const circle:Shape = {
+  kind: "circle",
+  radius: 32
+}
+
+function calculateArea(shape:Shape):number {
+  const squareArea = (side:number):number => side^2
+  const rectangleArea = (height:number,width:number):number => height*width
+  const circleArea = (radius:number):number => radius*Math.PI
+
+  switch(shape.kind) {
+    case "square":
+      return squareArea(shape.side)
+    case "rectangle":
+      return rectangleArea(shape.height,shape.width)
+    case "circle":
+      return circleArea(shape.radius)
+    default:
+      return 0
+  }
+}
+
+console.log("new actions");
+
+console.log(calculateArea(circle))
+console.log(calculateArea(square))
+console.log(calculateArea(rectangle))

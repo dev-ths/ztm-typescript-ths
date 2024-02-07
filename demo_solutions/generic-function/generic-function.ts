@@ -54,8 +54,8 @@ function getFirstStringOrNumber(
 // from above.
 //
 // TypeScript analyzes the code at compile time and makes sure that all usages
+function getFirst<T >(arr: T[]): T | undefined {
 // of the function are valid.
-function getFirst<T>(arr: T[]): T | undefined {
   if (arr.length > 0) {
     return arr[0];
   }
@@ -128,3 +128,48 @@ assert.equal(getArea(smallSquare), 1);
 //
 // ERROR: argument of type `string` is not assignable to parameter of type
 // `Area`
+
+const arrNum = [1,55,0,4]
+const arrString = ["an","snteersnt","c","enstein"]
+const arrBoolean = [true,false,false]
+const arrMixed = [1,"entsesnt",true]
+const arrUndefinedNull = [undefined,null,,,null,undefined]
+
+function printFirst<t>(arr:t):t{
+  return arr[0]
+}
+
+console.log(printFirst(arrString))
+console.log(printFirst(arrNum))
+console.log(printFirst(arrBoolean))
+console.log(printFirst(arrMixed))
+console.log(printFirst(arrUndefinedNull))
+
+
+interface stuff {
+  a?: number
+  b?: string
+  c?: boolean
+}
+
+function getFirstInterface<G extends stuff>(input:G){
+  return input.a
+}
+
+let randomObj = {
+  a: 77,
+  b:"yes",
+}
+
+getFirstInterface(randomObj)
+
+type multiUnion = 
+| string
+| number
+| boolean
+
+function getFirstTypeUnion<A extends multiUnion>(input:multiUnion):multiUnion{
+  return input
+}
+
+console.log(getFirstTypeUnion(true))

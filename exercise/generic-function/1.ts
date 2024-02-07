@@ -13,4 +13,29 @@
 
 import { strict as assert } from "assert";
 
+function findFirstOccurrence<T>(arr: T[], element: T): number | undefined {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === element) {
+      return i;
+    }
+  }
+  return undefined;
+}
+
+function findFirstGeneric<G>(arr:G[],input:G): number | undefined {
+  for (const [index,element] of arr.entries()) {
+    if (element === input) {
+      return index
+    } 
+  }
+  return undefined
+}
+
+// Example usage
 const numbers: number[] = [1, 2, 3, 4, 5];
+const index1 = findFirstGeneric(numbers, 1);
+const index2 = findFirstGeneric(numbers, 6);
+const index4 = findFirstGeneric(numbers, 4);
+
+
+console.log(index1,index2,index4)

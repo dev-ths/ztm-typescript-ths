@@ -16,18 +16,18 @@
 import { strict as assert } from "assert";
 
 interface Square {
-  kind: 'square';
+  kind: "square";
   sideLength: number;
 }
 
 interface Rectangle {
-  kind: 'rectangle';
+  kind: "rectangle";
   width: number;
   height: number;
 }
 
 interface Circle {
-  kind: 'circle';
+  kind: "circle";
   radius: number;
 }
 
@@ -35,21 +35,21 @@ type Shape = Square | Rectangle | Circle;
 
 function calculateArea(shape: Shape): number {
   switch (shape.kind) {
-    case 'square':
+    case "square":
       return shape.sideLength * shape.sideLength;
-    case 'rectangle':
+    case "rectangle":
       return shape.width * shape.height;
-    case 'circle':
+    case "circle":
       return Math.PI * shape.radius * shape.radius;
     default:
-      throw new Error('Invalid shape');
+      throw new Error("Invalid shape");
   }
 }
 
 // Example usage
-const square: Shape = { kind: 'square', sideLength: 5 };
-const rectangle: Shape = { kind: 'rectangle', width: 4, height: 6 };
-const circle: Shape = { kind: 'circle', radius: 3 };
+const square: Shape = { kind: "square", sideLength: 5 };
+const rectangle: Shape = { kind: "rectangle", width: 4, height: 6 };
+const circle: Shape = { kind: "circle", radius: 3 };
 
 assert.equal(calculateArea(square), 25);
 assert.equal(calculateArea(rectangle), 24);

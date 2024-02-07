@@ -15,9 +15,10 @@ type Rgb = "red" | "green" | "blue";
   // each member.
   //
   // Array of our options:
-  const Color = ["red", "green", "blue"] as const;
+  const Color = ["red", "green", "blue",true,1,15,{}] as const;
   // Create a type from the array members (same as union):
-  type Color = (typeof Color)[number];
+  type Color = (typeof Color)[number]
+
   // Colors can be assigned just like a union type:
   const red: Color = "red";
 

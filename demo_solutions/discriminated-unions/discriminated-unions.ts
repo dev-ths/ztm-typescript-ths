@@ -50,4 +50,60 @@ function showMessage(msg: AccountCreationMessage) {
   }
 }
 
-showMessage(ok);
+//showMessage(ok);
+
+type DiscriminatedStuff = 
+| {stuff: "yes"; other1:number}
+| {stuff: "MegaCool"; other2:boolean}
+| {stuff: 1605406; other3:number }
+
+const disc1:DiscriminatedStuff = {
+  stuff: "yes",
+  other1: 15
+}
+
+const disc2:DiscriminatedStuff = {
+  stuff: "MegaCool",
+  other2: false
+}
+
+const disc3:DiscriminatedStuff = {
+  stuff: 1605406,
+  other3: 55
+}
+
+interface Holder {
+  discrim: DiscriminatedStuff
+  age:number
+  bark():string
+}
+
+const discriminatedInterfaceObject1:Holder = {
+  discrim: {
+    stuff: "yes",
+    other1: 15
+  },
+  age: 27,
+  bark(){
+    return String(this.age)
+  }
+}
+
+console.log(discriminatedInterfaceObject1.bark())
+
+function discriminateSwitch(msg:DiscriminatedStuff):string {
+  switch(msg.stuff) {
+    case "yes":
+      return String(msg.stuff + 'aaa')
+    case "MegaCool":
+      return String(msg.stuff + 'bbb')
+    case 1605406:
+      return String(msg.stuff + 'ccc')
+    default:
+      return 'something went wrongs'
+  }
+}
+
+console.log(discriminateSwitch(disc3))
+console.log(discriminateSwitch(disc1))
+console.log(discriminateSwitch(disc2))

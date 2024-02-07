@@ -18,3 +18,38 @@
 // 7. Assert that only "World" remains in the queue
 
 import { strict as assert } from "assert";
+
+interface GenericQueue<T> {
+  queue: T[]
+  addItem(item:T): T | undefined
+  removeItem(): T | undefined
+  viewItems(): T[] | []
+}
+
+class Queue<T> implements GenericQueue<T> {
+  queue: T[] = []
+  addItem(item:T): T | undefined {
+    this.queue.push(item)
+    return this.queue.at(-1)
+  }
+
+  removeItem(): T | undefined {
+    return this.queue.shift()
+  }
+
+  viewItems(): [] | T[] {
+    return this.queue
+  }
+}
+
+const stringObj = new Queue<string>
+
+console.log(stringObj.addItem("hello"))
+console.log(stringObj.addItem("world"))
+console.log(stringObj.viewItems())
+console.log(stringObj.removeItem())
+console.log(stringObj.addItem("what"))
+console.log(stringObj.addItem("yes"))
+console.log(stringObj.removeItem())
+console.log(stringObj.viewItems())
+
